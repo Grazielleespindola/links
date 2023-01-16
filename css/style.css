@@ -1,0 +1,150 @@
+/* Folha de estilo */
+
+/* seletor{
+    propriedade:valor;
+    propriedade:valor;
+} */
+
+
+/* 
+
+*{                             Resetar a margin e padding de todos os elementos que já vem por padrão.
+
+    margin: 0px;
+    padding: 0px;
+} 
+
+*/
+
+:root{
+    --primary: #225C72;     /* Cor Principal da página*/
+    --contrast: #00010D;    /* Cor do Degradê */
+    --secondary: #2775A6;
+    --gray: #666666;
+    --gray-light: #EEEEEE;
+    
+}
+
+
+body{                           /* Se trata do corpo da página*/
+    height: 100vh;              /* VH (View Height) é uma unidade de medida relacionada à tela, ao fundo, a página principal*/
+    margin: 0px;
+    /* background-color: var(--primary); */          /* background-color só pega cores sólidas */
+    /* background-image: url(../img/bg.jpg); */      /* background-image busca a imagem do PC. o " --/ " retorna a pasta anterior */
+    background-image: linear-gradient(var(--primary), var(--contrast));
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;           /* Esconder a barra de rolagem */
+}
+
+
+
+div{
+    width: 70%;                 /* 70% da tela para celular, por exemplo. Para não ficar com barra de rolagem ou ocupando a largura toda da tela.*/
+    max-width: 340px;           /* Largura máxima da tela (400 do figa - 60 do padding (30+30 da margem) que foi analisado no "inpsecionar" da página */
+    height: auto;               /* Altura */
+    background-color: var(--gray-light);
+    margin: 100px auto;         /* Vertical(top/bottom) e Horizontal(right/left) */    
+    padding: 30px;              /* Espaçamento interno */
+    text-align: center;
+    border-radius: 10px;
+}
+
+img{
+    width: 100px;                        /* Ajusta largura e altura automáticamente */
+    border-radius: 50%;                  /* Para ocupar arredondada nos 4 cantos */   
+
+                                         /*/ borda */
+    /* border-width: 5px;
+    border-color: var(--primary);
+    border-style: solid; */                                    
+    border: solid 5px var(--primary);   /* Abrevia as 3 linhas acima */
+}
+
+
+
+
+h1 {
+    font-size: 32px;
+    /* font-weight: 100;           Esse 100 é fixo devido ao peso da fonte utilizada no index, a fonte baixada/colada do fonts.google */
+    color: var(--contrast);
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+
+
+
+h2 {
+
+    margin-top: 0px;
+    margin-bottom: 0px;
+    color: var(--secondary);
+    font-size: 20px;
+}
+
+
+
+p {
+
+    margin-top: 10px;
+    color: var(--gray);
+}
+
+
+
+li{
+    margin-bottom: 5px;
+}
+
+#app{
+    display: none;              /* Retirar o bloco do botão APP, pois se estivesse ativo, ele iria aparecer 
+                                    em qualquer tamanho de tela. Porém, só quero que apareça quando a tela estiver menor,
+                                    como em celular, tablet, etc... */
+    
+}
+
+ul{
+
+    padding: 0px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    list-style-type: none;      /* Retirar a bolinha da lista */
+}
+
+ul a{
+    background-color: var(--primary);
+    color: white;
+    display: block;            /* O link(a) da lista(li) é inline, o " block " é para colocá-lo em bloco*/
+    text-decoration: none;     /* Retirar o sublinhado */     
+    /* padding-top: 10px;        Esses dois comandos, ou somente o "padding" sozinho
+     padding-bottom: 10px; */
+    padding: 10px 0;          /* Vertical(top/bottom) e Horizontal(right/left) */    
+    border-radius: 3px;
+}
+
+ul a:hover{
+    background-color: var(--contrast);
+}
+
+
+
+
+/* Media Query */  /* Posso utilizar condicionais a partir do @media {} e sempre tem que utilizar o seletor antes, como
+                        se estivesse escrevendo um novo css */
+
+@media (max-width: 768px){       /* Determinei que o que vier abaixo desse comando, só irá aparecer com uma tela de até 
+                                    768px, acima desse tamanho, ele irá desaparecer */
+
+    #app{
+        display: block;         /* Foi recolocado o botão do APP para aparecer em telas de no máximo 768px,
+                                     acima disso, já é tela de computador, o que não necessitaria desse botão */
+    }
+
+    body {
+        overflow: auto;         /*Habilitada a barra de rolagem em telas até 768px, a cima disso, some.*/
+        /* background-image: linear-gradient(red, blue); */
+        /* background-color: red ; */
+    }
+
+   
+
+}
